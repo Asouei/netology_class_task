@@ -148,7 +148,60 @@ def main():
 
         print(f'Самое тяжелове животное - {name}. Это - {type_}. Вес - {weight_}кг.')
 
+    def actions():
+        print()
+
+        print(goose_1.name)
+        goose_1.feed()
+        goose_1.egg()
+        print()
+
+        print(goose_2.name)
+        goose_2.feed()
+        goose_2.egg()
+        print()
+
+        print(cow_1.name)
+        cow_1.feed()
+        cow_1.milk()
+        print()
+
+        print(ship_1.name)
+        ship_1.feed()
+        ship_1.cut()
+        print()
+
+        print(ship_2.name)
+        ship_2.feed()
+        ship_2.cut()
+        print()
+
+        print(chicken_1.name)
+        chicken_1.feed()
+        chicken_1.egg()
+        print()
+
+        print(goat_1.name)
+        goat_1.feed()
+        goat_1.milk()
+        print()
+
+        print(goat_2.name)
+        goat_2.feed()
+        goat_2.milk()
+        print()
+
+        print(duck_1.name)
+        duck_1.feed()
+        duck_1.egg()
+        print()
+
+
+
+
+
     total_weight_check()
     weight_biggest()
+    actions()
 
 main()
