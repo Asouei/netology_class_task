@@ -1,13 +1,19 @@
+
+
 class animal():
 
-    # name = ""
-    # weight = 0
     feed_status = "Голодное"
     voice = ""
+    weight_list = []
+    weight = 0
 
-    def __init__(self, name, weight):
+    def __init__(self, name, weight, l=weight_list):
         self.name = name
         self.weight = weight
+        l = l.append(weight)
+
+    def __add__(self, other):
+        return self.weight + other.weight
 
     def feed(self):
 
@@ -91,6 +97,7 @@ class duck(animal, egg):
 
 def main():
 
+
     goose_1 = goose("Серый", 3.3)
     goose_2 = goose("Белый", 3.1)
     cow_1 = cow("Манька", 400)
@@ -100,12 +107,19 @@ def main():
     chicken_2 = chicken("Кукареку", 0.3)
     goat_1 = goat("Рога", 38)
     goat_2 = goat("Копыта", 41.4)
-    duck_1 = goat("кряква", 1.4)
+    duck_1 = duck("кряква", 1.4)
 
 
 
 
+    def total_weight_check():
 
+        total_weight = 0
+        for instance in animal.weight_list:
+            total_weight += float(instance)
 
+        print(f'Суммарный вес - {round(total_weight, 2)}')
+
+    total_weight_check()
 
 main()
