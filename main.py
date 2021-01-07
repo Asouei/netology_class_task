@@ -6,11 +6,13 @@ class animal():
     voice = ""
     weight_list = []
     weight = 0
+    name_list=[]
 
-    def __init__(self, name, weight, l=weight_list):
+    def __init__(self, name, weight, w=weight_list, n = name_list):
         self.name = name
         self.weight = weight
-        l = l.append(weight)
+        w = w.append(weight)
+        n = n.append(name)
 
     def __add__(self, other):
         return self.weight + other.weight
@@ -120,6 +122,18 @@ def main():
 
         print(f'Суммарный вес - {round(total_weight, 2)}')
 
+    def weight_biggest():
+        weight_ = 0
+        name = ""
+        for instance in animal.weight_list:
+            for name_ in animal.name_list:
+                if weight_ < int(instance):
+                    print(name_, instance)
+                    weight_ = int(instance)
+                    name = name_
+        print(f'Самое тяжелове животное - {name}. Вес - {weight_}кг.')
+
     total_weight_check()
+    weight_biggest()
 
 main()
