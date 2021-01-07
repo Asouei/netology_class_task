@@ -6,13 +6,18 @@ class animal():
     voice = ""
     weight_list = []
     weight = 0
-    name_list=[]
+    name_weight_dict = dict()
+    name_type_dict = dict()
 
-    def __init__(self, name, weight, w=weight_list, n = name_list):
+
+    def __init__(self, name, weight, w=weight_list, d = name_weight_dict, t=name_type_dict):
         self.name = name
         self.weight = weight
+        t_ = self.type
         w = w.append(weight)
-        n = n.append(name)
+
+        d[name] = weight
+        t[name] = t_
 
     def __add__(self, other):
         return self.weight + other.weight
@@ -72,13 +77,17 @@ class egg():
 
 class goose(animal, egg):
     voice = "ggg"
+    type = 'гусь'
+
 
 class cow(animal, milk):
     voice = "muu"
+    type = 'корова'
 
 class ship(animal):
     voice = "mee"
     hair = "Нет"
+    type = 'овца'
 
     def cut(self):
         if self.hair == "Есть":
@@ -89,13 +98,15 @@ class ship(animal):
 
 class chicken(animal, egg):
     voice = "kukareku"
+    type = 'курица'
 
 class goat(animal, milk):
     voice = "bee"
+    type = 'коза'
 
 class duck(animal, egg):
     voice = "krya"
-
+    type = 'утка'
 
 def main():
 
@@ -125,13 +136,17 @@ def main():
     def weight_biggest():
         weight_ = 0
         name = ""
-        for instance in animal.weight_list:
-            for name_ in animal.name_list:
-                if weight_ < int(instance):
-                    print(name_, instance)
-                    weight_ = int(instance)
-                    name = name_
-        print(f'Самое тяжелове животное - {name}. Вес - {weight_}кг.')
+        type_ = ""
+
+        for n, w in animal.name_weight_dict.items():
+            if weight_ < w:
+                weight_ = w
+                name = n
+        for n, t in animal.name_type_dict.items():
+            if name == n:
+                type_ = t
+
+        print(f'Самое тяжелове животное - {name}. Это - {type_}. Вес - {weight_}кг.')
 
     total_weight_check()
     weight_biggest()
