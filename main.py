@@ -1,9 +1,13 @@
 class animal():
 
-    name = ""
-    weight = 0
+    # name = ""
+    # weight = 0
     feed_status = "Голодное"
     voice = ""
+
+    def __init__(self, name, weight):
+        self.name = name
+        self.weight = weight
 
     def feed(self):
 
@@ -87,30 +91,20 @@ class duck(animal, egg):
 
 def main():
 
-    goose_1 = goose()
-    goose_2 = goose()
-    cow_1 = cow()
-    ship_1 = ship()
-    ship_2 = ship()
-    chicken_1 = chicken()
-    chicken_2 = chicken()
-    goat_1 = goat()
-    goat_2 = goat()
-    duck_1 = duck()
-
-    goose_1.name = "Серый"
-    goose_2.name = "Белый"
-    cow_1.name = "Манька"
-    ship_1.name = "Барашек"
-    ship_2.name = "Кудрявый"
-    chicken_1.name = "Ко-Ко"
-    chicken_2.name = "Кукареку"
-    goat_1.name = "Рога"
-    goat_2.name = "Копыта"
-    duck_1.name = "Кряква"
+    goose_1 = goose("Серый", 3.3)
+    goose_2 = goose("Белый", 3.1)
+    cow_1 = cow("Манька", 400)
+    ship_1 = ship("Барашек", 70)
+    ship_2 = ship("Кудрявый", 110)
+    chicken_1 = chicken("Ко-Ко", 0.4)
+    chicken_2 = chicken("Кукареку", 0.3)
+    goat_1 = goat("Рога", 38)
+    goat_2 = goat("Копыта", 41.4)
+    duck_1 = goat("кряква", 1.4)
 
 
-    ship_1.voice_check()
+
+
 
 
 
